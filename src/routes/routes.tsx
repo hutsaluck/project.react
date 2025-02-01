@@ -10,7 +10,7 @@ import {useAppSelector} from "../redux/store.ts";
 import {ReactNode} from "react";
 
 interface Props {
-    children?: ReactNode
+    children: ReactNode
 }
 
 const PrivateRoute = ({children}: Props) => {
