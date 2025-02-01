@@ -10,7 +10,11 @@ export const filterTagSlice = createSlice({
     initialState: initFilterTagSliceState,
     reducers: {
         setFilterTag: (state, action) => {
-            state.filterTag = action.payload;
+            if(state.filterTag === action.payload){
+                state.filterTag = '';
+            } else {
+                state.filterTag = action.payload;
+            }
         },
     },
 });
