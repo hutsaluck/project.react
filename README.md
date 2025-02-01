@@ -1,46 +1,79 @@
-# Getting Started with Create React App
+# DummyJSON Users & Recipes App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Опис проєкту
 
-## Available Scripts
+Цей проєкт - веб-застосунок, який використовує API [DummyJSON](https://dummyjson.com/docs) для роботи з користувачами та рецептами.
 
-In the project directory, you can run:
+## Функціональність
 
-### `npm start`
+### 1. Меню
+- Містить лінки на сторінки.
+- Відображає логотип залогіненого користувача.
+- Для неавторизованих користувачів у меню доступна лише лінка на сторінку аутентифікації.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 2. Пошук
+- Дозволяє шукати користувачів або рецепти в залежності від сторінки.
+- Один текстовий інпут (кнопка за бажанням).
+- Пошук за стрінговим значенням або за ID.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 3. Пагінація
+- Усі списки даних (користувачів, рецептів) є пагінованими.
 
-### `npm test`
+## Сторінки
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Головна сторінка (ГС)**
+- За замовчуванням користувач вважається неавторизованим.
+- Відображається повідомлення про необхідність аутентифікації.
+- Меню містить лише лінку на сторінку аутентифікації.
 
-### `npm run build`
+### **Сторінка аутентифікації (САФ)**
+- Містить форму для входу (інпут для логіна і пароля).
+- Дані для авторизації можна взяти з будь-якого користувача DummyJSON.
+- Після успішної авторизації у меню додаються лінки:
+    - Список усіх користувачів.
+    - Список усіх рецептів.
+    - Лого користувача (з об'єкта).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Сторінка з користувачами**
+- Містить меню, пошук та список користувачів (мінімум 3 поля з об'єкта).
+- При кліку на користувача:
+    - Перехід на детальну сторінку користувача (7-10 полів за вибором).
+    - Відображається список його рецептів.
+    - При кліку на рецепт — перехід на детальну сторінку рецепту.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Сторінка з рецептами**
+- Містить меню, пошук та список рецептів (лише назва + теги).
+- При кліку на рецепт:
+    - Перехід на детальну сторінку рецепту з усією інформацією.
+    - Відображається лінка на сторінку користувача, який його створив.
+- При кліку на тег — пошук усіх рецептів з цим тегом.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Додаткові вимоги
+- **Дизайн**: довільний.
+- **Керування стейтом**: через Redux і тільки через нього.
+- **API-запити**: відповідно до документації [DummyJSON](https://dummyjson.com/docs).
 
-### `npm run eject`
+## Технології
+- React + Redux
+- TypeScript
+- Tailwind CSS (або будь-який інший UI-фреймворк на вибір)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Запуск проєкту
+1. Встановіть залежності:
+   ```sh
+   npm install
+   ```
+2. Запустіть застосунок:
+   ```sh
+   npm start
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## API
+- **Користувачі**: `https://dummyjson.com/users`
+- **Рецепти**: `https://dummyjson.com/recipes`
+- **Аутентифікація**: `https://dummyjson.com/auth/login`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Цей проєкт допомагає відпрацювати роботу з Redux, пошуком, пагінацією та API-запитами.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
