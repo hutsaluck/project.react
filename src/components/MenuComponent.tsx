@@ -29,7 +29,7 @@ export const MenuComponent = () => {
                                   className="capitalize text-black no-underline hover:text-gray-500">Recipes</Link>
                         </li>
                         <li>
-                            <Link to={`users${user?.id}`}
+                            <Link to={`users/${user?.id}`}
                                   className="capitalize text-black no-underline hover:text-gray-500">
                                 <img className="w-10" src={user?.image} alt={user?.username}/>
                             </Link>
