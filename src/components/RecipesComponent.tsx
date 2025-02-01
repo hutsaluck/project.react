@@ -7,6 +7,7 @@ import {SearchComponent} from "./SearchComponent.tsx";
 import {useAppSelector} from "../redux/store.ts";
 import {useDispatch} from "react-redux";
 import {setSearchQuery, setSearchType} from "../redux/slices/SearchSlice.ts";
+import {useLocation} from "react-router-dom";
 
 interface RecipesComponentProps {
     recipes: IRecipe[]
@@ -20,6 +21,7 @@ export const RecipesComponent = ({recipes}: RecipesComponentProps) => {
     const searchType: string = useAppSelector((state) => state.searchStoreSlice.searchType)
     const filterTag: string = useAppSelector((state) => state.filterTagStoreSlice.filterTag)
     const dispatch = useDispatch();
+    const location = useLocation();
 
     useEffect(() => {
         if(searchType !== 'recipes'){
@@ -46,11 +48,11 @@ export const RecipesComponent = ({recipes}: RecipesComponentProps) => {
 
     return (
         <>
-            <SearchComponent/>
+            {!location.pathname.includes('users') && (<SearchComponent/>)}
             <div className="grid grid-cols-4 gap-5 justify-center items-start mx-5">
                 {recipesPage.map((recipe: IRecipe) => <RecipeComponent key={recipe.id} recipe={recipe} />)}
             </div>
-            <PaginationComponent totalPages={Math.ceil(totalPages)}/>
+            {(!location.pathname.includes('users') && recipes.length > 8) && (<PaginationComponent totalPages={Math.ceil(totalPages)}/>)}
         </>
     );
 };
