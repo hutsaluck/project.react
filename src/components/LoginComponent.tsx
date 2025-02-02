@@ -35,33 +35,44 @@ export const LoginComponent = () => {
     }
 
     return (
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
             <h2 className="text-2xl font-bold text-center mb-6">Do you want to visit the site?</h2>
             <p className="text-center text-lg mb-6">Enter your data!</p>
             <form className="grid gap-5" onSubmit={handleSubmit(loginHandler)}>
                 <label htmlFor="name" className="relative">
-                    <p className="bg-white py-0 font-light absolute px-1 -top-3 left-4 bg-primary-color text-text-color-button">Name</p>
+                    <p className="bg-white py-0 font-light absolute px-1 -top-3 left-4 bg-primary-color text-text-color-button">
+                        Name
+                    </p>
                     <input
                         type="text"
                         {...register('username')}
                         id="name"
+                        value="emilys"
                         placeholder="Name"
                         className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
                     />
-                    {errors.username && <p className="text-red-500 text-sm mt-2">{errors.username.message}</p>}
+                    {errors.username && (
+                        <p className="text-red-500 text-sm mt-2">{errors.username.message}</p>
+                    )}
                 </label>
 
                 <label htmlFor="password" className="relative">
-                    <p className="bg-white py-0 font-light absolute px-1 -top-3 left-4 bg-primary-color text-text-color-button">Password</p>
+                    <p className="bg-white py-0 font-light absolute px-1 -top-3 left-4 bg-primary-color text-text-color-button">
+                        Password
+                    </p>
                     <input
                         type="password"
                         {...register('password')}
                         id="password"
+                        value="emilyspass"
                         placeholder="Password"
                         className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
                     />
-                    {errors.password && <p className="text-red-500 text-sm mt-2">{errors.password.message}</p>}
+                    {errors.password && (
+                        <p className="text-red-500 text-sm mt-2">{errors.password.message}</p>
+                    )}
                 </label>
+
                 <input
                     type="submit"
                     value="Login"
@@ -69,10 +80,13 @@ export const LoginComponent = () => {
                     className="px-10 py-4 uppercase bg-gray-300 rounded-lg cursor-pointer hover:bg-gray-400 disabled:cursor-not-allowed disabled:bg-gray-200"
                 />
             </form>
-            {message &&
+
+            {message && (
                 <p className="text-center text-sm mt-4 text-gray-500">
                     Welcome {user?.firstName} {user?.lastName}!
-                </p>}
+                </p>
+            )}
         </div>
+
     );
 };
