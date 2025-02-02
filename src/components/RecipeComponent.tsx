@@ -10,7 +10,7 @@ export const RecipeComponent = ({recipe}: RecipeComponentProps) => {
     return (
         <div
             className="overflow-hidden my-10 border border-gray-300 rounded-2xl grid justify-center items-center cursor-pointer transition-shadow duration-500 hover:shadow-lg group">
-            <Link to={`/recipes/${recipe.id}`}>
+            <Link to={`/project.react/recipes/${recipe.id}`}>
                 <img
                     src={recipe.image}
                     alt={recipe.name}
@@ -18,7 +18,7 @@ export const RecipeComponent = ({recipe}: RecipeComponentProps) => {
                 />
             </Link>
             <div className="p-4">
-                <Link to={`/recipes/${recipe.id}`}>
+                <Link to={`/project.react/recipes/${recipe.id}`}>
 
                     <h3 className="text-lg font-semibold text-gray-800">{recipe.name}</h3>
                 </Link>

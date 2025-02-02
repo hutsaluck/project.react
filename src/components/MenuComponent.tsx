@@ -28,7 +28,7 @@ export const MenuComponent = () => {
 
     return (
         <nav className="flex justify-between items-center my-5 mx-5 z-9">
-            <Link to="/" className="text-2xl font-extrabold uppercase text-black hover:text-gray-500">
+            <Link to="/project.react/" className="text-2xl font-extrabold uppercase text-black hover:text-gray-500">
                 Logo
             </Link>
             <button
@@ -45,7 +45,7 @@ export const MenuComponent = () => {
             >
                 {!isAuthenticated && (
                     <li>
-                        <Link to="/login" className="capitalize text-black no-underline hover:text-gray-500">
+                        <Link to="/project.react/login" className="capitalize text-black no-underline hover:text-gray-500">
                             Login
                         </Link>
                     </li>
@@ -53,17 +53,17 @@ export const MenuComponent = () => {
                 {isAuthenticated && (
                     <>
                         <li>
-                            <Link to="/users" className="capitalize text-black no-underline hover:text-gray-500">
+                            <Link to="/project.react/users" className="capitalize text-black no-underline hover:text-gray-500">
                                 Users
                             </Link>
                         </li>
                         <li>
-                            <Link to="/recipes" className="capitalize text-black no-underline hover:text-gray-500">
+                            <Link to="/project.react/recipes" className="capitalize text-black no-underline hover:text-gray-500">
                                 Recipes
                             </Link>
                         </li>
                         <li className="relative group">
-                            <Link to={`users/${user?.id}`} className="capitalize text-black no-underline hover:text-gray-500">
+                            <Link to={`/project.react/users/${user?.id}`} className="capitalize text-black no-underline hover:text-gray-500">
                                 <img
                                     className="w-10 rounded-full cursor-pointer"
                                     src={user?.image}

@@ -15,7 +15,7 @@ export const HomeComponent = () => {
                 </p>
                 {!isAuthenticated && (
                     <Link
-                        to="/login"
+                        to="/project.react/login"
                         className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
                     >
                         Go to Login Page

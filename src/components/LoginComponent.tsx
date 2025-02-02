@@ -26,7 +26,7 @@ export const LoginComponent = () => {
             setUser(user)
             setMessage(true)
             dispatch(loginUser(user))
-            navigate(`/users/${user.id}`);
+            navigate(`/project.react/users/${user.id}`);
         })
         reset()
         setTimeout(() => {

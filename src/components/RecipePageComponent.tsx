@@ -37,7 +37,7 @@ const RecipePageComponent: React.FC<RecipeProps> = ({recipes, users}) => {
                             <p className="text-gray-600">
                                 <span className="font-semibold">ID:</span> {recipe.id}
                             </p>
-                            <Link to={`/users/${recipe.userId}`} className="text-gray-600">
+                            <Link to={`/project.react/users/${recipe.userId}`} className="text-gray-600">
                                 <span className="font-semibold">Автор:</span> {recipeUser?.firstName} {recipeUser?.lastName}
                             </Link>
                             <p className="text-gray-600">

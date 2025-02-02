@@ -6,7 +6,7 @@ type IUserProps = {
 }
 export const UserComponent = ({user}: IUserProps) => {
     return (
-        <Link to={`/users/${user.id}`}>
+        <Link to={`/project.react/users/${user.id}`}>
             <div
                 className="overflow-hidden my-10 border border-gray-300 rounded-2xl grid justify-center items-center cursor-pointer transition-shadow duration-500 hover:shadow-lg">
                 <div className="overflow-hidden rounded-t-2xl h-64 w-full">

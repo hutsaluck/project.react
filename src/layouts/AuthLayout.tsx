@@ -10,7 +10,7 @@ export const AuthLayout = () => {
 
     const PrivateRoute = ({children}: Props) => {
         const isAuthenticated: boolean = useAppSelector((state) => state.authStoreSlice.isAuthenticated)
-        return isAuthenticated ? children : <Navigate to="/login"/>;
+        return isAuthenticated ? children : <Navigate to="/project.react/login"/>;
     }
     return (
         <>

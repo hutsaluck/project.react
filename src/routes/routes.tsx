@@ -10,7 +10,7 @@ import {AuthLayout} from "../layouts/AuthLayout.tsx";
 
 export const routes = createBrowserRouter([
     {
-        path: '/',
+        path: '/project.react/',
         element: <MainLayout/>,
         children: [
             {
@@ -18,7 +18,7 @@ export const routes = createBrowserRouter([
                 element: <HomePage/>
             },
             {
-                path: 'login',
+                path: '/project.react/login',
                 element: <LoginPage/>
             },
             {
@@ -26,19 +26,19 @@ export const routes = createBrowserRouter([
                 element: <AuthLayout/>,
                 children: [
                     {
-                        path: 'users',
+                        path: '/project.react/users',
                         element: <UsersPage/>
                     },
                     {
-                        path: '/users/:id',
+                        path: '/project.react/users/:id',
                         element: <UserPage/>
                     },
                     {
-                        path: '/recipes',
+                        path: '/project.react/recipes',
                         element: <RecipesPage/>
                     },
                     {
-                        path: '/recipes/:id',
+                        path: '/project.react/recipes/:id',
                         element: <RecipePage/>
                     },
                 ]
