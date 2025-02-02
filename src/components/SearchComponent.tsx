@@ -1,4 +1,4 @@
-import {SearchIconComponent} from "./SearchIconComponent.tsx";
+import {SearchIcon} from "../icons/SearchIcon.tsx";
 import React from "react";
 import {useDispatch} from "react-redux";
 import {useAppSelector} from "../redux/store.ts";
@@ -11,7 +11,7 @@ export const SearchComponent = () => {
     return (
         <div className="flex justify-center items-center w-full mt-4">
             <div className="relative w-80">
-                <SearchIconComponent/>
+                <SearchIcon/>
                 <input
                     type="text"
                     value={searchQuery}

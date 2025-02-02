@@ -51,8 +51,10 @@ export const UsersComponent = ({users}: UsersComponentProps) => {
     return (
         <>
             <SearchComponent/>
-            <div className="grid grid-cols-4 gap-10 justify-center items-start mx-5">
-                {usersPage.map((user: IUser) => <UserComponent key={user.id} user={user}/>)}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-8 lg:gap-10 justify-center items-start mx-2 sm:mx-5">
+                {usersPage.map((user: IUser) => (
+                    <UserComponent key={user.id} user={user} />
+                ))}
             </div>
             <PaginationComponent totalPages={Math.ceil(totalPages)}/>
         </>

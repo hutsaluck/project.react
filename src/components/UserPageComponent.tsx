@@ -86,7 +86,7 @@ export const UserPageComponent = ({users, recipes}: UserPageComponentProps) => {
                     </div>
 
                     {moreInfo && (
-                        <div className="grid grid-cols-4 gap-5 justify-center items-start mx-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 justify-center items-start mx-2 sm:mx-5">
                             <div className="mb-8">
                                 <h2 className="text-xl font-semibold mb-2">Address</h2>
                                 <p>

@@ -1,4 +1,11 @@
-export const SearchIconComponent = () => {
+type SearchIconProps = {
+    className?: string,
+}
+
+export const SearchIcon = ({ className, ...props }: SearchIconProps) => {
+    const defaultClasses = "lucide lucide-search";
+    const combinedClasses = className ? `${defaultClasses} ${className}` : defaultClasses;
+
     return (
         <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
             <svg
@@ -11,12 +18,12 @@ export const SearchIconComponent = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-search"
+                className={combinedClasses}
+                {...props}
             >
-                <circle cx="11" cy="11" r="8" />
-                <path d="M21 21l-4.3-4.3" />
+                <circle cx="11" cy="11" r="8"/>
+                <path d="M21 21l-4.3-4.3"/>
             </svg>
         </div>
-
     );
 };

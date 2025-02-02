@@ -74,9 +74,10 @@ export const RecipesComponent = ({recipes}: RecipesComponentProps) => {
                     </p>
                 ))}
             </div>)}
-            <div className="grid grid-cols-4 gap-5 justify-center items-start mx-5">
-                {recipesPage.map((recipe: IRecipe) => <RecipeComponent key={recipe.id} recipe={recipe}/>)}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 justify-center items-start mx-2 sm:mx-5">
+                {recipesPage.map((recipe: IRecipe) => (<RecipeComponent key={recipe.id} recipe={recipe} />))}
             </div>
+
             {(!location.pathname.includes('users') && recipes.length > 8) && (
                 <PaginationComponent totalPages={Math.ceil(totalPages)}/>)}
         </>
