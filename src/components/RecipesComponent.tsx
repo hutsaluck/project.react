@@ -28,7 +28,7 @@ export const RecipesComponent = ({recipes}: RecipesComponentProps) => {
     const prevFilterTags = useRef(filterTags);
 
     useEffect(() => {
-        if (prevSearchQuery.current !== searchQuery || filterTags.length && arraysEqual(prevFilterTags.current, filterTags)) {
+        if (prevSearchQuery.current !== searchQuery || filterTags.length && !arraysEqual(prevFilterTags.current, filterTags)) {
             prevSearchQuery.current = searchQuery;
             prevFilterTags.current = filterTags;
 
