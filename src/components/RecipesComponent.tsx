@@ -28,7 +28,7 @@ export const RecipesComponent = ({recipes}: RecipesComponentProps) => {
     const prevFilterTags = useRef(filterTags);
 
     useEffect(() => {
-        if (prevSearchQuery.current !== searchQuery || arraysEqual(prevFilterTags.current, filterTags)) {
+        if (prevSearchQuery.current !== searchQuery || filterTags.length && arraysEqual(prevFilterTags.current, filterTags)) {
             prevSearchQuery.current = searchQuery;
             prevFilterTags.current = filterTags;
 
@@ -57,12 +57,12 @@ export const RecipesComponent = ({recipes}: RecipesComponentProps) => {
 
         const total: number = searchRecipes.length
         setTotalPages(total / limit)
-    }, [searchParams, recipes, searchQuery, searchType, filterTags, dispatch])
+    }, [searchParams, setSearchParams, recipes, searchQuery, searchType, filterTags, dispatch])
 
     return (
         <>
             {!location.pathname.includes('users') && (<SearchComponent/>)}
-            {filterTags.length >= 1 && (<div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-5 justify-center items-start mx-5">
+            {filterTags.length >= 1 && (<div className="grid grid-flow-col gap-5 justify-start items-start mx-5 mt-5 overflow-auto pb-5">
                 {filterTags.map((tag, index) => (
                     <p
                         key={index}

@@ -10,15 +10,16 @@ export const filterTagSlice = createSlice({
     initialState: initFilterTagSliceState,
     reducers: {
         setFilterTag: (state, action) => {
-            console.log(action.payload)
             if(state.filterTags.includes(action.payload)){
-                console.log('deleted')
                 state.filterTags = state.filterTags.filter(item => item !== action.payload);
             } else {
                 state.filterTags.push(action.payload);
             }
         },
+        removeFilterTag: (state) => {
+            state.filterTags.length = 0
+        },
     },
 });
 
-export const { setFilterTag } = filterTagSlice.actions;
+export const { setFilterTag, removeFilterTag } = filterTagSlice.actions;

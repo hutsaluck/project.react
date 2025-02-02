@@ -3,6 +3,8 @@ import {useEffect, useState} from "react";
 import {RecipesComponent} from "./RecipesComponent.tsx";
 import {IUser} from "../models/IUser.ts";
 import {IRecipe} from "../models/IRecipe.ts";
+import {removeFilterTag} from "../redux/slices/FilterTagSlice.ts";
+import {useDispatch} from "react-redux";
 
 interface UserPageComponentProps {
     users: IUser[];
@@ -15,12 +17,14 @@ export const UserPageComponent = ({users, recipes}: UserPageComponentProps) => {
     const [user, setUser] = useState<IUser | null>(null);
     const [userRecipes, setUserRecipes] = useState<IRecipe[]>([]);
     const [moreInfo, setMoreInfo] = useState<boolean>(false)
+    const dispatch = useDispatch();
 
     useEffect(() => {
+        dispatch(removeFilterTag())
         const currentUser = users.find((user) => user.id === Number(id)) ?? null;
         setUser(currentUser);
         setUserRecipes(recipes.filter((recipe) => recipe.userId === Number(id)));
-    }, [users, recipes, id]);
+    }, [users, recipes, id, dispatch]);
 
 
     return (

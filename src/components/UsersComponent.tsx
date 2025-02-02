@@ -46,7 +46,7 @@ export const UsersComponent = ({users}: UsersComponentProps) => {
 
         const total: number = searchUsers.length
         setTotalPages(total / limit)
-    }, [searchParams, users, searchQuery])
+    }, [searchParams, setSearchParams, users, searchQuery, dispatch, searchType])
 
     return (
         <>

@@ -67,7 +67,7 @@ export const loadAuthUsers = async (): Promise<IUser[]> => {
 }
 
 export const refresh = async (): Promise<void> => {
-    const userWithTokens = await retriveLocalStorage<IUserWithTokens>("user");
+    const userWithTokens = retriveLocalStorage<IUserWithTokens>("user");
     const {
         data: {
             accessToken,

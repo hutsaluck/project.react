@@ -11,7 +11,7 @@ export const RecipesPage = () => {
 
     useEffect(() => {
         dispatch(recipeActions.loadRecipes())
-    }, [])
+    }, [dispatch])
 
     return (
         <>

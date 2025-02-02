@@ -16,7 +16,7 @@ const RecipePageComponent: React.FC<RecipeProps> = ({recipes, users}) => {
     useEffect(() => {
         setRecipe(recipes.find(recipe => recipe.id === Number(id)) ?? null)
         setRecipeUser(users.find(user => user.id === Number(recipe?.userId)) ?? null);
-    }, [recipe, recipes, id])
+    }, [recipe, recipes, id, users])
 
     return (
         <div>

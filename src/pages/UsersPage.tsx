@@ -11,7 +11,7 @@ export const UsersPage = () => {
 
     useEffect(() => {
         dispatch(userActions.loadUsers())
-    }, [])
+    }, [dispatch])
 
     return (
         <>
