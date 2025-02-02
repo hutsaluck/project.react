@@ -1,19 +1,21 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 type FilterTagSliceType = {
-    filterTag: string,
+    filterTags: string[],
 }
-const initFilterTagSliceState: FilterTagSliceType = {filterTag: ''};
+const initFilterTagSliceState: FilterTagSliceType = {filterTags: []};
 
 export const filterTagSlice = createSlice({
     name: 'filterTagSlice',
     initialState: initFilterTagSliceState,
     reducers: {
         setFilterTag: (state, action) => {
-            if(state.filterTag === action.payload){
-                state.filterTag = '';
+            console.log(action.payload)
+            if(state.filterTags.includes(action.payload)){
+                console.log('deleted')
+                state.filterTags = state.filterTags.filter(item => item !== action.payload);
             } else {
-                state.filterTag = action.payload;
+                state.filterTags.push(action.payload);
             }
         },
     },

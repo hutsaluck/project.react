@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {IUser} from "../models/IUser.ts";
 import {UserComponent} from "./UserComponent.tsx";
 import {useSearchParams} from "react-router";
@@ -13,15 +13,24 @@ interface UsersComponentProps {
 }
 
 export const UsersComponent = ({users}: UsersComponentProps) => {
-    const [searchParams] = useSearchParams({page: '1'})
+    const [searchParams, setSearchParams] = useSearchParams({page: '1'})
     const [usersPage, setUsersPage] = useState<IUser[]>([])
     const [totalPages, setTotalPages] = useState<number>(1)
     const searchQuery: string = useAppSelector((state) => state.searchStoreSlice.searchQuery)
     const searchType: string = useAppSelector((state) => state.searchStoreSlice.searchType)
     const dispatch = useDispatch();
+    const prevSearchQuery = useRef(searchQuery);
 
     useEffect(() => {
-        if(searchType !== 'users'){
+        if (prevSearchQuery.current !== searchQuery) {
+            prevSearchQuery.current = searchQuery;
+
+            if (searchParams.get('page') !== '1') {
+                setSearchParams({page: '1'});
+            }
+        }
+
+        if (searchType !== 'users') {
             dispatch(setSearchQuery(''))
             dispatch(setSearchType('users'))
         }
@@ -41,7 +50,7 @@ export const UsersComponent = ({users}: UsersComponentProps) => {
 
     return (
         <>
-            <SearchComponent />
+            <SearchComponent/>
             <div className="grid grid-cols-4 gap-10 justify-center items-start mx-5">
                 {usersPage.map((user: IUser) => <UserComponent key={user.id} user={user}/>)}
             </div>

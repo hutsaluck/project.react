@@ -19,7 +19,7 @@ export const RecipeTagComponent = ({tag, index}: RecipeTagComponentProps) => {
                     navigate('/recipes')
                 }
             }}
-            className="bg-gray-300 rounded-2xl py-1 px-3 text-white text-center cursor-pointer transition-shadow duration-500 hover:shadow-lg"
+            className="bg-gray-400 rounded-2xl py-1 px-3 text-white text-center cursor-pointer transition-shadow duration-500 hover:shadow-lg"
             key={index}>
             #{tag}
         </span>
